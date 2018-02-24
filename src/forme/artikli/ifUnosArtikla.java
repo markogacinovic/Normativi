@@ -71,6 +71,7 @@ public class ifUnosArtikla extends javax.swing.JInternalFrame {
         lblJM = new javax.swing.JLabel();
         btnSnimi = new javax.swing.JButton();
         bntUcitaj = new javax.swing.JButton();
+        btnStorniraj = new javax.swing.JButton();
 
         setClosable(true);
         setIconifiable(true);
@@ -162,6 +163,8 @@ public class ifUnosArtikla extends javax.swing.JInternalFrame {
             }
         });
 
+        btnStorniraj.setText("Storniraj");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -179,7 +182,9 @@ public class ifUnosArtikla extends javax.swing.JInternalFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(txtSifra, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(bntUcitaj, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addComponent(bntUcitaj, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(btnStorniraj))))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(lblGrupaNormativa)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -213,7 +218,8 @@ public class ifUnosArtikla extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblSifra)
                     .addComponent(txtSifra, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(bntUcitaj))
+                    .addComponent(bntUcitaj)
+                    .addComponent(btnStorniraj))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblNaziv)
@@ -484,6 +490,7 @@ public class ifUnosArtikla extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnDodajNormativ;
     private javax.swing.JButton btnIzbaci;
     private javax.swing.JButton btnSnimi;
+    private javax.swing.JButton btnStorniraj;
     private javax.swing.JComboBox cbGrupaNormativa;
     private javax.swing.JComboBox cbSifraNormativa;
     private javax.swing.JScrollPane jScrollPane1;
