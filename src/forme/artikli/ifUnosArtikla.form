@@ -40,7 +40,7 @@
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="bntUcitaj" min="-2" pref="95" max="-2" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="btnStorniraj" min="-2" max="-2" attributes="0"/>
+                              <Component id="btnStorniraj" min="-2" pref="105" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -114,7 +114,7 @@
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Component id="btnSnimi" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="30" max="32767" attributes="0"/>
+              <EmptySpace pref="34" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
