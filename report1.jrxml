@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="c6db7677-974a-442e-a22c-2565ad1b19b0">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title" fontName="Arial" fontSize="26" isBold="true" pdfFontName="Helvetica-Bold"/>
+	<style name="SubTitle" forecolor="#666666" fontName="Arial" fontSize="18"/>
+	<style name="Column header" forecolor="#666666" fontName="Arial" fontSize="12" isBold="true"/>
+	<style name="Detail" fontName="Arial" fontSize="12"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT
+     radninalozi.`id` AS radninalozi_id,
+     radninalozi.`idKomitenta` AS radninalozi_idKomitenta,
+     radninalozi.`broj` AS radninalozi_broj,
+     radninalozi.`rokIsporuke` AS radninalozi_rokIsporuke,
+     radninalozi.`datum` AS radninalozi_datum,
+     komitenti.`id` AS komitenti_id,
+     komitenti.`naziv` AS komitenti_naziv,
+     komitenti.`adresa` AS komitenti_adresa,
+     artikliradnognaloga.`idartiklia` AS artikliradnognaloga_idartiklia,
+     artikliradnognaloga.`idradnognaloga` AS artikliradnognaloga_idradnognaloga,
+     artikliradnognaloga.`kolicina` AS artikliradnognaloga_kolicina,
+     artikli.`id` AS artikli_id,
+     artikli.`sifra` AS artikli_sifra,
+     artikli.`naziv` AS artikli_naziv,
+     normativizaartikal.`idnormativa` AS normativizaartikal_idnormativa,
+     normativizaartikal.`idartikla` AS normativizaartikal_idartikla,
+     normativizaartikal.`kolicina` AS normativizaartikal_kolicina,
+     normativi.`id` AS normativi_id,
+     normativi.`sifra` AS normativi_sifra,
+     normativi.`idGrupe` AS normativi_idGrupe,
+     normativi.`naziv` AS normativi_naziv,
+     normativi.`idJediniceMere` AS normativi_idJediniceMere,
+     normativi.`cena` AS normativi_cena
+FROM
+     `komitenti` komitenti INNER JOIN `radninalozi` radninalozi ON komitenti.`id` = radninalozi.`idKomitenta`
+     INNER JOIN `artikliradnognaloga` artikliradnognaloga ON radninalozi.`id` = artikliradnognaloga.`idradnognaloga`
+     INNER JOIN `artikli` artikli ON artikliradnognaloga.`idartiklia` = artikli.`id`
+     INNER JOIN `normativizaartikal` normativizaartikal ON artikli.`id` = normativizaartikal.`idartikla`
+     INNER JOIN `normativi` normativi ON normativizaartikal.`idnormativa` = normativi.`id`]]>
+	</queryString>
+	<field name="radninalozi_broj" class="java.lang.String"/>
+	<field name="radninalozi_rokIsporuke" class="java.sql.Date"/>
+	<field name="radninalozi_datum" class="java.sql.Date"/>
+	<field name="komitenti_naziv" class="java.lang.String"/>
+	<field name="komitenti_adresa" class="java.lang.String"/>
+	<field name="artikliradnognaloga_kolicina" class="java.math.BigDecimal"/>
+	<field name="artikli_naziv" class="java.lang.String"/>
+	<field name="normativizaartikal_kolicina" class="java.math.BigDecimal"/>
+	<field name="normativi_naziv" class="java.lang.String"/>
+	<field name="normativi_idJediniceMere" class="java.lang.Integer"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="70" splitType="Stretch">
+			<image>
+				<reportElement x="275" y="0" width="300" height="64" uuid="0be214b1-ddf3-406c-ad0b-e67c9e55f0bf"/>
+				<imageExpression><![CDATA["leaf_banner_gray.png"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement style="Title" x="0" y="13" width="263" height="33" uuid="6af40ec9-a584-4a54-ba11-1cf0c043c3e5"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Leaf Gray Title]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="SubTitle" x="117" y="46" width="157" height="22" uuid="2ed1b5f1-1701-4afd-b158-f69ebc768843"/>
+				<text><![CDATA[Leaf Gray SubTitle]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="36" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="35" width="555" height="1" uuid="3c7f6d9f-b7d0-4a83-b2e7-b53e0f0e555a"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement style="Column header" x="0" y="19" width="55" height="15" uuid="b7abb2b7-96b3-47ef-bd69-04f37c29115d"/>
+				<text><![CDATA[radninalozi_broj]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="55" y="19" width="55" height="15" uuid="e9db8ba1-c44b-4d5a-9ca6-3ff348a9c523"/>
+				<text><![CDATA[radninalozi_rokIsporuke]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="110" y="19" width="55" height="15" uuid="00176f23-4eee-4778-8e11-1ceb53486b91"/>
+				<text><![CDATA[radninalozi_datum]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="165" y="19" width="55" height="15" uuid="0df4fb59-25c2-40b8-988a-fc55f6808264"/>
+				<text><![CDATA[komitenti_naziv]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="220" y="19" width="55" height="15" uuid="c04dbcbb-ee7b-4642-bb82-2d69e8338267"/>
+				<text><![CDATA[komitenti_adresa]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="275" y="19" width="55" height="15" uuid="6195add6-d4cd-44a1-95b1-9ba28c3f2b2d"/>
+				<text><![CDATA[artikliradnognaloga_kolicina]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="330" y="19" width="55" height="15" uuid="66107cd7-7538-492c-873d-8721dea4d2c1"/>
+				<text><![CDATA[artikli_naziv]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="385" y="19" width="55" height="15" uuid="b5dd77b5-d1eb-4f74-a8aa-04e975d743f6"/>
+				<text><![CDATA[normativizaartikal_kolicina]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="440" y="19" width="55" height="15" uuid="05d971f2-5790-4c51-8ef8-5c90f2110dc1"/>
+				<text><![CDATA[normativi_naziv]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="495" y="19" width="55" height="15" uuid="3db22bc0-8963-430b-8a4d-5b21a7fa8c90"/>
+				<text><![CDATA[normativi_idJediniceMere]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="16" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="15" width="555" height="1" uuid="1e4e19af-42a6-4f86-a6d3-cbb287bcb9c3"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<textField>
+				<reportElement style="Detail" x="0" y="0" width="55" height="15" uuid="4397e10d-d307-44f6-9000-2f4617fa7f37"/>
+				<textFieldExpression><![CDATA[$F{radninalozi_broj}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="55" y="0" width="55" height="15" uuid="b4b6d3ca-822e-46ac-8868-cc3541434a86"/>
+				<textFieldExpression><![CDATA[$F{radninalozi_rokIsporuke}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="110" y="0" width="55" height="15" uuid="8cfd964a-6c07-4263-9989-9b333ba4b4ec"/>
+				<textFieldExpression><![CDATA[$F{radninalozi_datum}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="165" y="0" width="55" height="15" uuid="705369f9-81f6-4a18-a673-abd4ad952813"/>
+				<textFieldExpression><![CDATA[$F{komitenti_naziv}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="220" y="0" width="55" height="15" uuid="cac8bb32-ff5e-4b89-a74f-0b48fd5147fd"/>
+				<textFieldExpression><![CDATA[$F{komitenti_adresa}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="275" y="0" width="55" height="15" uuid="b0a16e7b-7e2c-4e88-bb3b-a4b1b3b35127"/>
+				<textFieldExpression><![CDATA[$F{artikliradnognaloga_kolicina}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="330" y="0" width="55" height="15" uuid="7ca0af58-f204-4a16-a3dc-58fdaa246730"/>
+				<textFieldExpression><![CDATA[$F{artikli_naziv}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="385" y="0" width="55" height="15" uuid="b1df6fd7-03d6-42cd-b8b0-f185cda258e4"/>
+				<textFieldExpression><![CDATA[$F{normativizaartikal_kolicina}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="440" y="0" width="55" height="15" uuid="0d37ad4b-4c5a-4c21-9a09-22df22f1d499"/>
+				<textFieldExpression><![CDATA[$F{normativi_naziv}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="495" y="0" width="55" height="15" uuid="1b19804a-2115-458d-bbac-8ad9619ebb0d"/>
+				<textFieldExpression><![CDATA[$F{normativi_idJediniceMere}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="3" width="555" height="1" uuid="feece5ab-8605-487c-b412-4d716e8e3985"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement style="Column header" x="433" y="0" width="80" height="20" uuid="83c50401-58c4-4433-8319-1aea644cb78b"/>
+				<textElement textAlignment="Right">
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement style="Column header" x="513" y="0" width="40" height="20" uuid="d81d95ac-dfd1-4567-98db-d5a9804f8410"/>
+				<textElement>
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement style="Column header" x="0" y="0" width="197" height="20" uuid="23e5200b-c585-44cc-9ba2-c7c10eb9c7b1"/>
+				<textElement>
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>
